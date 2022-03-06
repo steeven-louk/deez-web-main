@@ -1,0 +1,47 @@
+.favorie-section {
+    margin-top: 15px;
+
+    .card {
+        border-radius: 15px;
+
+        .card_image {
+            position: relative;
+
+            &:hover {
+
+                .card_icon .eye {
+                    display: inline-block;
+                }
+            }
+
+            .card_icon {
+                position: absolute;
+                bottom: 10px;
+                left: 25px;
+
+            }
+
+            .heart {
+                color: #ff0000 !important;
+                background-color: red;
+            }
+
+            .icon {
+                width: 50px;
+                background: #fff;
+                margin-right: 15px;
+                border-radius: 50%;
+
+                color: #000;
+                padding: 10px 0;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.3);
+                }
+
+            }
+
+        }
+    }
+}

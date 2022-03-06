@@ -1,0 +1,46 @@
+*{
+  transition: .2s all ease-in-out!important;
+}
+
+body {
+  margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  //****** VARIABLE GLOBALE *******//
+
+  background: #000;
+
+  a {
+    color: #ef5466 !important;
+  }
+
+  .breadcrumb-nav {
+    box-shadow: 2px 4px 5px #ff00007c !important;
+    width: fit-content;
+
+    .breadcrumb-item {
+      text-transform: capitalize;
+    }
+  }
+
+  a,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  table,
+  small,
+  select,
+  tr {
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 4px;
+  }
+
+  /***** VARIABLE GLOBALE **********/
+
+}

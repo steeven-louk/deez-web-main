@@ -1,0 +1,28 @@
+.loading-section {
+    display: flex;
+    //width: 100%;
+    height: calc(100vh-3rem);
+    align-items: center;
+    justify-content: center;
+    margin-left: 15em;
+
+    .img-loading > img{
+        width: 50%;
+        height: 50%;
+        background:  linear-gradient(to right bottom, #ff0000, #ff0045, #f2007e, #bb00b9, #2312eb);;
+        border-radius: 100%;
+        padding: 5px;
+        animation: loading 3s infinite linear ;
+        transition: .2s all ease;
+
+        @keyframes loading {
+            0%{
+                transform: rotate(0);
+            }
+           
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    }
+}

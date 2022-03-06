@@ -1,0 +1,44 @@
+.search-section{
+    
+    form{
+        .search-input {
+            border: 0;
+            border-bottom: 2px solid #ccc;
+            box-shadow: 2px 2px 1px #ccc;
+            text-align: center;
+            font-size: 20px;
+            box-shadow: 2px 2px 5px #ff0000;
+            margin-bottom: 5px;
+
+            &::placeholder{
+                font-weight: bold;
+                font-size: 20px;
+                color: #000;
+                letter-spacing: 1px;
+            }
+        }
+
+        .btn{
+            
+           &__icon{
+               margin:auto  15px
+           }
+        }
+    }
+
+    .select-form{
+        width: 10em;
+        height: 3em;
+        margin: 15px 0 0 5px;
+        padding-left: 5px;
+        background: transparent;
+        outline: none;
+        text-transform: capitalize;
+
+        option{
+            background: #000;
+            outline:none;
+           
+        }
+    }
+}
