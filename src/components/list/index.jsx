@@ -14,13 +14,14 @@ const Listes = ({ data, loading }) => {
       localStorage.setItem("data", JSON.stringify(item));
 
   }
-  ;
+  
   useEffect(() => {
     saveinLocalStorage();
-  }, []);
+  },[]);
 
   return (
     <section className="liste_section row row-cols-1 row-cols-md-4 g-4">
+    
       {loading ? (
         data &&
         data.map((item) => (
@@ -39,12 +40,14 @@ const Listes = ({ data, loading }) => {
                       icon="fa-solid fa-eye"
                       className="icon eye"
                     />
+                   
                   </Link>
                   <FontAwesomeIcon
                     icon="fa-solid fa-heart"
                     onClick={() => saveinLocalStorage(item)}
                     className={wish ? "icon eye" : "icon eye heart "}
                   />
+                  
                 </div>
               </div>
               <div className="card-body flex-column d-flex">

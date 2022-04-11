@@ -7,9 +7,10 @@
         border-radius: 15px;
         .card_image {
             position: relative;
+          
 
             &:hover{
-                .card_icon .eye{
+                .card_icon .icon.eye{
                     display: inline-block;
                 }
             }
