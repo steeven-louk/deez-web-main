@@ -10,9 +10,9 @@ function Favorie() {
   const getItemWithLocalStorage = async (item) => {
     try {
       const local = await localStorage.getItem("data", item);
-
+      
       if (local) {
-        return setGetFav(JSON.parse(local));
+        return setGetFav(...getFav, JSON.parse(local));
       }
     } catch (error) {
       console.warn("err :", error.message);
@@ -32,7 +32,7 @@ function Favorie() {
   useEffect(() => {
     getItemWithLocalStorage();
 
-    removeFromLocalStorage();
+    //removeFromLocalStorage();
   }, []);
 
   useEffect(() => "", [getFav]);
@@ -93,6 +93,7 @@ function Favorie() {
               </div>
             </div>
         )}
+
       </div>
     </section>
   );

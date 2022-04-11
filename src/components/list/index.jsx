@@ -11,7 +11,10 @@ const Listes = ({ data, loading }) => {
   const saveinLocalStorage = (item) => {
 
     setWish(!wish);
-      localStorage.setItem("data", JSON.stringify(item));
+    if(item !== data.id){
+       localStorage.setItem("data", JSON.stringify(item));
+    }
+     
 
   }
   
