@@ -8,19 +8,38 @@ const Listes = ({ data, loading }) => {
 
   const [wish, setWish] = useState(false);
 
-  const saveinLocalStorage = (item) => {
-
+  const saveinLocalStorage = () => {
+/*
     setWish(!wish);
     if(item !== data.id){
        localStorage.setItem("data", JSON.stringify(item));
     }
-     
+     */
+
+    try {
+      
+     let wishArticle = JSON.parse(localStorage.getItem('wishArticle'));
+
+     if(wishArticle) {
+       wishArticle.push(data);
+       localStorage.setItem('wishArticle', JSON.stringify(wishArticle));
+       setWish(true);
+       console.log(wishArticle);
+     } else{
+       
+      wishArticle = [];
+      wishArticle.push(data);
+      localStorage.setItem('wishArticle', JSON.stringify(wishArticle))
+      setWish(true);
+      console.log(wishArticle);
+     }
+
+    } catch (error) {
+      console.log('error', error);
+    }
 
   }
-  
-  useEffect(() => {
-    saveinLocalStorage();
-  },[]);
+
 
   return (
     <section className="liste_section row row-cols-1 row-cols-md-4 g-4">
@@ -47,8 +66,8 @@ const Listes = ({ data, loading }) => {
                   </Link>
                   <FontAwesomeIcon
                     icon="fa-solid fa-heart"
-                    onClick={() => saveinLocalStorage(item)}
-                    className={wish ? "icon eye" : "icon eye heart "}
+                    onClick={ saveinLocalStorage}
+                    className={!wish ? "icon eye" : "icon eye heart "}
                   />
                   
                 </div>

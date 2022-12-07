@@ -1,41 +1,39 @@
 import React, { useEffect, useState } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./styles/styles.scss";
+import Listes from "../../components/list";
 
 function Favorie() {
+
+
   const [getFav, setGetFav] = useState([]);
 
-  const getItemWithLocalStorage = async (item) => {
+  const getItemWithLocalStorage = async () => {
     try {
-      const local = await localStorage.getItem("data", item);
-      
-      if (local) {
-        return setGetFav(...getFav, JSON.parse(local));
-      }
+      const fav = await JSON.parse(localStorage.getItem("wishArticle"));
+      setGetFav(fav);
+      console.log('getFav', getFav);
+     
     } catch (error) {
-      console.warn("err :", error.message);
+      console.log("err :", error.message);
     }
   };
+  console.log('getFav', getFav);
 
-  const removeFromLocalStorage = (item) => {
-    localStorage.removeItem("data", item);
-  };
-
-  const getTime = (time) => {
+ /* const getTime = (time) => {
     let minutes = Math.floor(time / 60);
     let seconds = ("0" + Math.floor(time % 60)).slice(-2);
     return minutes + ":" + seconds;
-  };
+  };*/
 
   useEffect(() => {
     getItemWithLocalStorage();
-
-    //removeFromLocalStorage();
+//removeFromLocalStorage();
   }, []);
 
-  useEffect(() => "", [getFav]);
+
 
   return (
     <section className="favorie-section">
@@ -50,14 +48,21 @@ function Favorie() {
             </li>
           </ol>
         </nav>
-        {getFav.length === 0 ? (
+        {getFav === null ? (
           <h1>oooops veuillez rajouter des éléments dans les favories</h1>
         ) : (
-            <div className="col" key={getFav && getFav.id}>
+         
+          getFav && getFav.map(fav =>(
+             <Listes data={fav} key={fav.key}/>
+          ))
+            
+        
+         
+          /**   <div className="col" key={getFav && getFav.id}>
               <div className="card bg-dark text-white">
                 <div className="card_image">
                   <img
-                    src={getFav.album && getFav.album.cover_medium}
+                    src={getFav && getFav.album.cover_medium}
                     className="card-img-top"
                     alt={getFav.data && getFav.title}
                   />
@@ -66,7 +71,7 @@ function Favorie() {
                 
                     <FontAwesomeIcon
                       icon="fa-solid fa-heart"
-                      onClick={removeFromLocalStorage}
+                      onClick={()=>{}}
                       className="icon heart eye"
                     />
                   </div>
@@ -91,7 +96,7 @@ function Favorie() {
                   </span>
                 </div>
               </div>
-            </div>
+            </div> */
         )}
 
       </div>
